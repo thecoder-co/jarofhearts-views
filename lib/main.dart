@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jar_of_heart_views/jar.dart';
 import 'package:jar_of_heart_views/start_screen.dart';
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (true) {
+    if (kDebugMode) {
       jar ??= '631a47337965a1ff4255d566';
     }
 
