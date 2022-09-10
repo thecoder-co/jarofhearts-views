@@ -1,35 +1,35 @@
 {
-    "name": "jar_of_heart_views",
-    "short_name": "jar_of_heart_views",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "Jar of hearts",
-    "orientation": "portrait-primary",
-    "prefer_related_applications": false,
-    "icons": [
-        {
-            "src": "jar of hearts.jpeg",
-            "sizes": "192x192",
-            "type": "image/jpeg"
-        },
-        {
-            "src": "jar of hearts.jpeg",
-            "sizes": "512x512",
-            "type": "image/jpeg"
-        },
-        {
-            "src": "jar of hearts.jpeg",
-            "sizes": "192x192",
-            "type": "image/jpeg",
-            "purpose": "maskable"
-        },
-        {
-            "src": "jar of hearts.jpeg",
-            "sizes": "512x512",
-            "type": "image/jpeg",
-            "purpose": "maskable"
-        }
-    ]
+  "name": "jar_of_heart_views",
+  "short_name": "jar_of_heart_views",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "description": "Design jars of hearts",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }

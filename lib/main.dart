@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Dys',
         primarySwatch: Colors.blue,
       ),
       routes: {
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    /* String myurl = Uri.base.toString();
+    String myurl = Uri.base.toString();
 
     JarController.jar = Uri.base.queryParameters['jar'];
     print('${JarController.jar} WREGSDFVERV3');
@@ -54,8 +55,20 @@ class _MyHomePageState extends State<MyHomePage> {
       return const Scaffold(
         body: Center(child: Text('No jar chosen')),
       );
-    } */
+    }
 
-    return const DomStart();
+    return Scaffold(
+      body: FutureBuilder(
+        future: JarController.viewJar(context, JarController.jar!),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            return const DomStart();
+            //return const PreviewStart();
+          } else {
+            return Container();
+          }
+        },
+      ),
+    );
   }
 }

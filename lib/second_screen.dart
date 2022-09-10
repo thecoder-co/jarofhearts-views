@@ -5,6 +5,8 @@ import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:jar_of_heart_views/audio_controller.dart';
+import 'dart:html' as html;
+
 import 'package:jar_of_heart_views/jar.dart';
 
 class PreviewSecondScreen extends StatefulWidget {
@@ -134,10 +136,8 @@ class _TestPageState extends State<PreviewSecondScreen> {
               if (index == (JarController.currentJar['pages'] as List).length) {
                 return InkWell(
                   onTap: () async {
-                    AudioController.player.stop();
-                    AudioController.secondPlayer.stop();
-
-                    // TODO: Put editor lick here url launcher
+                    html.window
+                        .open('https://jarofheartseditor.web.app/', '_blank');
                   },
                   child: Container(
                     margin: EdgeInsets.only(
