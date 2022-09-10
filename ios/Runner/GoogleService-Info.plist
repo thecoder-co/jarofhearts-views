@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>941020926280-pk1gbt3gvb44sidv03je4kabutc5nf9s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.941020926280-pk1gbt3gvb44sidv03je4kabutc5nf9s</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBhVt05PNZ9S52qqYHUdkJRZvEVk9S5zXw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>941020926280</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.jarOfHeartViews</string>
+	<key>PROJECT_ID</key>
+	<string>jar-of-hearts-view</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jar-of-hearts-view.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:941020926280:ios:9e565e874dffe61bec637d</string>
+</dict>
+</plist>
