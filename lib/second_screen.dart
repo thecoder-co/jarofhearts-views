@@ -5,7 +5,6 @@ import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:jar_of_heart_views/audio_controller.dart';
-import 'dart:html' as html;
 
 import 'package:jar_of_heart_views/jar.dart';
 
@@ -112,7 +111,7 @@ class _TestPageState extends State<PreviewSecondScreen> {
                 : null,
           ),
           child: Swiper(
-            itemCount: JarController.currentJar['pages'].length + 1,
+            itemCount: JarController.currentJar['pages'].length,
             autoplay: false,
             loop: false,
             control: const SwiperControl(),
@@ -133,147 +132,73 @@ class _TestPageState extends State<PreviewSecondScreen> {
             },
             scale: 0.8,
             itemBuilder: (context, index) {
-              if (index == (JarController.currentJar['pages'] as List).length) {
-                return InkWell(
-                  onTap: () async {
-                    html.window
-                        .open('https://jarofheartseditor.web.app/', '_blank');
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.10,
-                      bottom: MediaQuery.of(context).size.height * 0.10,
-                    ),
-                    padding: const EdgeInsets.all(30),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: cardBorderBgGradient != null
-                          ? GradientBoxBorder(
-                              gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: cardBorderBgGradient!,
-                              ),
-                              width: 3,
-                            )
-                          : null,
-                      image: cardBgImage != null
+              return Container(
+                padding: const EdgeInsets.all(30),
+                margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.10,
+                  bottom: MediaQuery.of(context).size.height * 0.10,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: cardBorderBgGradient != null
+                      ? GradientBoxBorder(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: cardBorderBgGradient!,
+                          ),
+                          width: 3,
+                        )
+                      : null,
+                  gradient: cardBgGradient != null
+                      ? LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: cardBgGradient!,
+                        )
+                      : null,
+                  color: cardBgColor,
+                  image: JarController.currentJar['pages']?[index]?['image'] !=
+                          null
+                      ? DecorationImage(
+                          image: NetworkImage(JarController.currentJar['pages']
+                              [index]['image']),
+                          fit: BoxFit.cover,
+                        )
+                      : cardBgImage != null
                           ? DecorationImage(
                               image: NetworkImage(cardBgImage!),
                               fit: BoxFit.cover,
                             )
                           : null,
-                      gradient: cardBgGradient != null
-                          ? LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: cardBgGradient!,
-                            )
-                          : null,
-                      color: cardBgColor,
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Explore jar of hearts',
-                        style: JarController.currentJar['font'] == null
-                            ? TextStyle(
-                                fontSize: 32.0,
-                                fontWeight: FontWeight.bold,
-                                color: JarController.currentJar['textColor'] ==
-                                        null
-                                    ? const Color(0xffA1C6EA)
-                                    : Color(
-                                        JarController.currentJar['textColor'],
-                                      ),
-                              )
-                            : GoogleFonts.getFont(
-                                JarController.currentJar['font'],
-                                fontSize: 32.0,
-                                fontWeight: FontWeight.bold,
-                                color: JarController.currentJar['textColor'] ==
-                                        null
-                                    ? const Color(0xffA1C6EA)
-                                    : Color(
-                                        JarController.currentJar['textColor'],
-                                      ),
-                              ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                );
-              } else {
-                return Container(
-                  padding: const EdgeInsets.all(30),
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.10,
-                    bottom: MediaQuery.of(context).size.height * 0.10,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: cardBorderBgGradient != null
-                        ? GradientBoxBorder(
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: cardBorderBgGradient!,
-                            ),
-                            width: 3,
+                ),
+                child: Center(
+                  child: Text(
+                    '${JarController.currentJar['pages']?[index]?['text'] ?? ''}',
+                    style: JarController.currentJar['font'] == null
+                        ? TextStyle(
+                            fontSize: 32.0,
+                            fontWeight: FontWeight.bold,
+                            color: JarController.currentJar['textColor'] == null
+                                ? const Color(0xffA1C6EA)
+                                : Color(
+                                    JarController.currentJar['textColor'],
+                                  ),
                           )
-                        : null,
-                    gradient: cardBgGradient != null
-                        ? LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: cardBgGradient!,
-                          )
-                        : null,
-                    color: cardBgColor,
-                    image: JarController.currentJar['pages']?[index]
-                                ?['image'] !=
-                            null
-                        ? DecorationImage(
-                            image: NetworkImage(JarController
-                                .currentJar['pages'][index]['image']),
-                            fit: BoxFit.cover,
-                          )
-                        : cardBgImage != null
-                            ? DecorationImage(
-                                image: NetworkImage(cardBgImage!),
-                                fit: BoxFit.cover,
-                              )
-                            : null,
+                        : GoogleFonts.getFont(
+                            JarController.currentJar['font'],
+                            fontSize: 32.0,
+                            fontWeight: FontWeight.bold,
+                            color: JarController.currentJar['textColor'] == null
+                                ? const Color(0xffA1C6EA)
+                                : Color(
+                                    JarController.currentJar['textColor'],
+                                  ),
+                          ),
+                    textAlign: TextAlign.center,
                   ),
-                  child: Center(
-                    child: Text(
-                      '${JarController.currentJar['pages']?[index]?['text'] ?? ''}',
-                      style: JarController.currentJar['font'] == null
-                          ? TextStyle(
-                              fontSize: 32.0,
-                              fontWeight: FontWeight.bold,
-                              color:
-                                  JarController.currentJar['textColor'] == null
-                                      ? const Color(0xffA1C6EA)
-                                      : Color(
-                                          JarController.currentJar['textColor'],
-                                        ),
-                            )
-                          : GoogleFonts.getFont(
-                              JarController.currentJar['font'],
-                              fontSize: 32.0,
-                              fontWeight: FontWeight.bold,
-                              color:
-                                  JarController.currentJar['textColor'] == null
-                                      ? const Color(0xffA1C6EA)
-                                      : Color(
-                                          JarController.currentJar['textColor'],
-                                        ),
-                            ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                );
-              }
+                ),
+              );
             },
           ),
         );
