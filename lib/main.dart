@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jar_of_heart_views/dom_start.dart';
 import 'package:jar_of_heart_views/jar.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:jar_of_heart_views/prefs.dart';
+import 'package:jar_of_heart_views/start_screen.dart';
 
 void main() async {
   usePathUrlStrategy();
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Jar of Hearts',
       theme: ThemeData(
         fontFamily: 'Dys',
         primarySwatch: Colors.blue,
@@ -63,8 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
         future: JarController.viewJar(context, JarController.jar!),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            return const DomStart();
-            //return const PreviewStart();
+            //return const DomStart();
+            return const PreviewStart();
           } else {
             return Container();
           }

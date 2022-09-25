@@ -23,10 +23,7 @@ class _EditStartViewState extends State<PreviewStart> {
   @override
   void initState() {
     super.initState();
-    if (JarController.currentJar['sound'] != null) {
-      AudioController.player.play(UrlSource(JarController.currentJar['sound']));
-      print('playing');
-    }
+
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       paddingSize = WindowSize.width(context) * 0.5 - 70;
       setState(() {});
@@ -190,6 +187,11 @@ class _EditStartViewState extends State<PreviewStart> {
                 ),
                 InkWell(
                   onTap: () {
+                    if (JarController.currentJar['sound'] != null) {
+                      AudioController.player
+                          .play(UrlSource(JarController.currentJar['sound']));
+                      print('playing');
+                    }
                     JarController.currentIndex = 0;
                     Navigator.of(context).push(
                       MaterialPageRoute(
