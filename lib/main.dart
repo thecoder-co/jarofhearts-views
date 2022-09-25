@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:jar_of_heart_views/dom_start.dart';
 import 'package:jar_of_heart_views/jar.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:jar_of_heart_views/prefs.dart';
 
-void main() {
+void main() async {
   usePathUrlStrategy();
+  await Prefs.init();
   runApp(const MyApp());
 }
 
@@ -36,14 +38,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
-    String myurl = Uri.base.toString();
-
     JarController.jar = Uri.base.queryParameters['jar'];
-    print('${JarController.jar} WREGSDFVERV3');
+    JarController.jar ??= Prefs.getId();
+
     /* if (kDebugMode && JarController.jar == null) {
       print('JarController.jar was null');
       JarController.jar ??= '631b4dfb673f8e63205ef9ab';
@@ -55,6 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
       return const Scaffold(
         body: Center(child: Text('No jar chosen')),
       );
+    } else {
+      Prefs.saveId(JarController.jar!);
     }
 
     return Scaffold(
